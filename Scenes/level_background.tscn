@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccxds0ty1ux3t"]
+
+[ext_resource type="Texture2D" uid="uid://ckdqj5sw6eiye" path="res://Assets/Textures/Backgrounds/Background.png" id="1_i1m6f"]
+
+[node name="LevelBackground" type="ParallaxBackground"]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+texture_repeat = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_i1m6f")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 1280)
