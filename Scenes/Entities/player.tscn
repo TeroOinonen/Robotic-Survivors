@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdhri236uuiq5"]
+[gd_scene load_steps=5 format=3 uid="uid://cdhri236uuiq5"]
 
 [ext_resource type="Texture2D" uid="uid://dhgixy7nns5xo" path="res://icon.svg" id="1_hix2f"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_kb8ds"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2qtun"]
 animations = [{
@@ -16,6 +17,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2eslo"]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_kb8ds")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.155, 0.234375)
