@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://n1mfulcmk3uh"]
+[gd_scene load_steps=5 format=3 uid="uid://n1mfulcmk3uh"]
 
 [ext_resource type="Script" path="res://Scenes/game_view.gd" id="1_oxny4"]
 [ext_resource type="PackedScene" uid="uid://cdhri236uuiq5" path="res://Scenes/Entities/player.tscn" id="2_7gkqo"]
 [ext_resource type="PackedScene" uid="uid://ccxds0ty1ux3t" path="res://Scenes/level_background.tscn" id="2_vf0l8"]
+[ext_resource type="PackedScene" uid="uid://ha4o7sbko1bc" path="res://Scenes/Entities/control_tower.tscn" id="4_wskkn"]
 
 [node name="GameView" type="Node2D"]
 script = ExtResource("1_oxny4")
@@ -11,3 +12,6 @@ script = ExtResource("1_oxny4")
 
 [node name="Player" parent="." instance=ExtResource("2_7gkqo")]
 position = Vector2(623, 389)
+
+[node name="ControlTower" parent="." instance=ExtResource("4_wskkn")]
+position = Vector2(772, 898)

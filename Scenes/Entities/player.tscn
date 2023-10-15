@@ -15,12 +15,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2eslo"]
+radius = 33.0
+height = 128.0
 
 [node name="Player" type="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 2
+y_sort_enabled = true
+collision_mask = 6
 script = ExtResource("1_kb8ds")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.155, 0.234375)
+scale = Vector2(0.53125, 1)
 sprite_frames = SubResource("SpriteFrames_2qtun")
 autoplay = "default"
 

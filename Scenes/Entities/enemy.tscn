@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkiwkbee1keai"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hppde"]
+[ext_resource type="Texture2D" uid="uid://dhgixy7nns5xo" path="res://icon.svg" id="1_lev15"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uylb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lev15")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8f8c"]
+radius = 39.0
+height = 122.0
+
+[node name="Enemy" type="Area2D"]
+light_mask = 2
+visibility_layer = 2
+y_sort_enabled = true
+script = ExtResource("1_hppde")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.609375, 0.953125)
+sprite_frames = SubResource("SpriteFrames_uylb0")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r8f8c")
