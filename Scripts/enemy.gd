@@ -1,5 +1,8 @@
 extends Area2D
 
+# Number of hits it takes for the enemy to die
+@export var hit_points: int = 1
+
 const move_speed: float = 40
 
 var target_location: Vector2
@@ -17,3 +20,18 @@ func _process(delta: float) -> void:
 	
 	global_position += direction * move_speed * delta
 	
+func take_damage(amount: int):
+	hit_points -= amount
+	print("Ouch!")
+	
+	if hit_points < 1:
+		get_destroyed()
+
+func get_destroyed():
+	print("Enemy died")
+	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	body.take_damage(1)
+	print("Enemy dealt damage")

@@ -3,6 +3,8 @@ extends CharacterBody2D
 const move_speed: float = 50
 var move_input: Vector2
 
+@export var hit_points: int = 5
+
 @onready var gun = $Gun
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,3 +29,13 @@ func _physics_process(delta: float) -> void:
 	velocity = move_input * move_speed
 
 	move_and_slide() # Uses delta automatically with the set velocity
+
+func take_damage(amount: int):
+	hit_points -= amount
+	
+	if hit_points < 1:
+		get_destroyed()
+
+func get_destroyed():
+	print("Player died, game over")
+	get_tree().reload_current_scene()
