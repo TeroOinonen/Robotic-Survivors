@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdhri236uuiq5"]
+[gd_scene load_steps=6 format=3 uid="uid://cdhri236uuiq5"]
 
-[ext_resource type="Texture2D" uid="uid://dhgixy7nns5xo" path="res://icon.svg" id="1_hix2f"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_kb8ds"]
+[ext_resource type="Texture2D" uid="uid://c2kv3idn4psjx" path="res://Assets/Textures/Entities/Droid.png" id="2_du7vn"]
+[ext_resource type="PackedScene" uid="uid://b64j0pkmdv36d" path="res://Scenes/Items/gun.tscn" id="3_af1vc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2qtun"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hix2f")
+"texture": ExtResource("2_du7vn")
 }],
 "loop": true,
 "name": &"default",
@@ -15,8 +16,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2eslo"]
-radius = 33.0
-height = 128.0
+radius = 9.0
+height = 32.0
 
 [node name="Player" type="CharacterBody2D"]
 light_mask = 2
@@ -34,3 +35,6 @@ autoplay = "default"
 shape = SubResource("CapsuleShape2D_2eslo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_af1vc")]
+position = Vector2(0, -26)

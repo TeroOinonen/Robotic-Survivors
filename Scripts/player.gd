@@ -3,6 +3,8 @@ extends CharacterBody2D
 const move_speed: float = 50
 var move_input: Vector2
 
+@onready var gun = $Gun
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 

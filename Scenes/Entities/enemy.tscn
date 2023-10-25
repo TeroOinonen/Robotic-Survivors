@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkiwkbee1keai"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hppde"]
-[ext_resource type="Texture2D" uid="uid://dhgixy7nns5xo" path="res://icon.svg" id="1_lev15"]
+[ext_resource type="Texture2D" uid="uid://cyn3w6kg2kfuc" path="res://Assets/Textures/Entities/rat.png" id="2_l5yqw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uylb0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_lev15")
+"texture": ExtResource("2_l5yqw")
 }],
 "loop": false,
 "name": &"default",
@@ -15,8 +15,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8f8c"]
-radius = 39.0
-height = 122.0
+radius = 7.0
+height = 14.0
 
 [node name="Enemy" type="Area2D"]
 light_mask = 2
@@ -30,4 +30,5 @@ sprite_frames = SubResource("SpriteFrames_uylb0")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
 shape = SubResource("CapsuleShape2D_r8f8c")

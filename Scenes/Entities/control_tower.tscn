@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://ha4o7sbko1bc"]
 
-[ext_resource type="Texture2D" uid="uid://dhgixy7nns5xo" path="res://icon.svg" id="1_thdj4"]
+[ext_resource type="Texture2D" uid="uid://k30ogsvygyqn" path="res://Assets/Textures/Entities/Control Tower.png" id="1_gdm0a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2tov"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_thdj4")
+"texture": ExtResource("1_gdm0a")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wdmi6"]
-radius = 64.0078
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mm3h1"]
+radius = 14.0
+height = 40.0
 
 [node name="ControlTower" type="Area2D"]
 light_mask = 2
@@ -28,4 +29,6 @@ sprite_frames = SubResource("SpriteFrames_b2tov")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_wdmi6")
+position = Vector2(0, 17)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_mm3h1")
