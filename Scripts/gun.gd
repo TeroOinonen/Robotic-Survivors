@@ -7,7 +7,7 @@ extends Node2D
 @export_range(0.1, 2.0) var fire_coefficient: float = 1
 
 # Preload the bullet scene that gun will fire
-@onready var bullet = preload("res://Scenes/bullet.tscn")
+@onready var bullet = preload("res://Scenes/Items/bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

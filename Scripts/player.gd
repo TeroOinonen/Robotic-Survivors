@@ -3,9 +3,12 @@ extends CharacterBody2D
 const move_speed: float = 50
 var move_input: Vector2
 
-@export var hit_points: int = 5
-
 @onready var gun_slot = %GunSlot
+
+## Money for buing ammo and upgrades
+@export var money: int = 0
+## Hitpoints available before death
+@export var hit_points: int = 5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -40,3 +43,10 @@ func take_damage(amount: int):
 func get_destroyed():
 	print("Player died, game over")
 	get_tree().reload_current_scene()
+
+
+func _on_collect_area_body_entered(body: Node2D) -> void:
+	body.get_collected()
+	
+func add_coin(value):
+	money += value

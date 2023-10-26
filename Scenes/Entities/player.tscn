@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdhri236uuiq5"]
+[gd_scene load_steps=7 format=3 uid="uid://cdhri236uuiq5"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_kb8ds"]
 [ext_resource type="Texture2D" uid="uid://c2kv3idn4psjx" path="res://Assets/Textures/Entities/Droid.png" id="2_du7vn"]
@@ -18,6 +18,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2eslo"]
 radius = 9.0
 height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6m7v"]
+radius = 33.0151
 
 [node name="Player" type="CharacterBody2D"]
 light_mask = 2
@@ -42,3 +45,12 @@ unique_name_in_owner = true
 [node name="Gun" parent="GunSlot" instance=ExtResource("3_af1vc")]
 position = Vector2(26, 0)
 rotation = 1.57079
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_o6m7v")
+
+[connection signal="body_entered" from="CollectArea" to="." method="_on_collect_area_body_entered"]

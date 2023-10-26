@@ -57,4 +57,5 @@ interact={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="structure"
 2d_physics/layer_4="bullet"
-2d_physics/layer_5="Layer 5"
+2d_physics/layer_5="Pickup"
+2d_physics/layer_6="Collect Radius"
