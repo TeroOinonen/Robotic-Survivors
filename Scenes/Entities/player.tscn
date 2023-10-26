@@ -40,4 +40,5 @@ shape = SubResource("CapsuleShape2D_2eslo")
 unique_name_in_owner = true
 
 [node name="Gun" parent="GunSlot" instance=ExtResource("3_af1vc")]
-position = Vector2(0, 29)
+position = Vector2(26, 0)
+rotation = 1.57079
