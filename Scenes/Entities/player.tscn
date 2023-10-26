@@ -36,5 +36,8 @@ shape = SubResource("CapsuleShape2D_2eslo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Gun" parent="." instance=ExtResource("3_af1vc")]
-position = Vector2(0, -26)
+[node name="GunSlot" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Gun" parent="GunSlot" instance=ExtResource("3_af1vc")]
+position = Vector2(0, 29)

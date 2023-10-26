@@ -5,7 +5,7 @@ var move_input: Vector2
 
 @export var hit_points: int = 5
 
-@onready var gun = $Gun
+@onready var gun_slot = %GunSlot
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 	# Get the movement direction vector
 	move_input = Input.get_vector("left", "right", "up", "down")
 
+	gun_slot.look_at(get_global_mouse_position()+get_local_mouse_position())
 
 func _physics_process(delta: float) -> void:
 
