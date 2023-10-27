@@ -4,6 +4,7 @@ const move_speed: float = 50
 var move_input: Vector2
 
 @onready var gun_slot = %GunSlot
+@onready var damage_flash = $AnimatedSprite2D/DamageFlash
 
 ## Money for buing ammo and upgrades
 @export var money: int = 0
@@ -39,6 +40,11 @@ func take_damage(amount: int):
 	
 	if hit_points < 1:
 		get_destroyed()
+	else:
+		# Tween DamageFlash-ColorRect alpha-property for flash effect
+		var tween_damage = create_tween()
+		tween_damage.tween_property(damage_flash, "color:a", 255, 0.1)
+		tween_damage.tween_property(damage_flash, "color:a", 0, 0.1)
 
 func get_destroyed():
 	print("Player died, game over")
