@@ -9,6 +9,9 @@ extends Node2D
 # Preload the bullet scene that gun will fire
 @onready var bullet = preload("res://Scenes/Items/bullet.tscn")
 
+@onready var bullet_container = $BulletContainer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,8 +24,8 @@ func _process(delta: float) -> void:
 func shoot():
 	print("bang")
 	var pew = bullet.instantiate()
-	add_child(pew)
-	pew.position = position
+	bullet_container.add_child(pew)
+	pew.global_position = global_position
 	pew.rotation = rotation
 	pew.top_level = true
 	
