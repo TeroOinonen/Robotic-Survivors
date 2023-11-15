@@ -22,8 +22,11 @@ func _process(delta: float) -> void:
 	if bullet_age < 0 || pass_through < 0:
 		queue_free()
 	
+	# not working
+	var up_vector = get_global_transform().get_rotation()
+	
 	# Move bullet forward
-	global_position += Vector2.UP * bullet_speed * delta
+	global_position *= up_vector * bullet_speed * delta
 	
 	# Reduce bullet age
 	bullet_age -= delta

@@ -11,22 +11,31 @@ extends Node2D
 
 @onready var bullet_container = $BulletContainer
 
+var next_shot_in: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	next_shot_in -= delta
 
 func shoot():
-	print("bang")
+	#Do not fire if delay is going on
+	if (next_shot_in > 0):
+		return
+
+	print("bang") 
+	# start delay between shots and reduce delay by coefficient
+	next_shot_in = fire_delay * fire_coefficient
+	new_bullet()
+
+func new_bullet():
 	var pew = bullet.instantiate()
 	bullet_container.add_child(pew)
 	pew.global_position = global_position
-	pew.rotation = rotation
+	pew.global_rotation = global_rotation
 	pew.top_level = true
-	
 	
