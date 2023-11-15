@@ -10,12 +10,14 @@
 script = ExtResource("1_oxny4")
 
 [node name="LevelBackground" parent="." instance=ExtResource("2_vf0l8")]
+follow_viewport_enabled = false
+follow_viewport_scale = 0.0
 
 [node name="Player" parent="." instance=ExtResource("2_7gkqo")]
 position = Vector2(623, 389)
 
 [node name="ControlTower" parent="." instance=ExtResource("4_wskkn")]
-position = Vector2(772, 898)
+position = Vector2(662, 457)
 
 [node name="Enemy" parent="." instance=ExtResource("5_oxcua")]
-position = Vector2(1006, 670)
+position = Vector2(881, 510)

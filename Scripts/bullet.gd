@@ -18,12 +18,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	# Reduce bullet age and check if it needs to be destroyed
-	bullet_age -= delta
-	
+	# destroy bullet if age exceeded or hit enough of targets
 	if bullet_age < 0 || pass_through < 0:
 		queue_free()
+	
+	# Move bullet forward
+	global_position += Vector2.UP * bullet_speed * delta
+	
+	# Reduce bullet age
+	bullet_age -= delta
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.TakeDamage(damage)

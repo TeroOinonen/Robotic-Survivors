@@ -17,3 +17,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func shoot():
+	print("bang")
+	var pew = bullet.instantiate()
+	add_child(pew)
+	pew.position = position
+	pew.rotation = rotation
+	pew.top_level = true
+	
+	

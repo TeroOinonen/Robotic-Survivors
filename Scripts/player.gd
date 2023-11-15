@@ -11,13 +11,11 @@ var move_input: Vector2
 ## Hitpoints available before death
 @export var hit_points: int = 5
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 func _input(event: InputEvent) -> void:
 	# Read player mouse clicks
 	if event.is_action_pressed("attack"):
 		print("Player Attacks!")
+		$GunSlot/Gun.shoot();
 	
 	if event.is_action_pressed("interact"):
 		print("Player Interacts!")
