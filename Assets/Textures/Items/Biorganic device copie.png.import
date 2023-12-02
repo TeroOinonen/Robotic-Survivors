@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rms7pedc3mjn"
-path="res://.godot/imported/Coin rotation.png-6b510936b2e736d1f8fe3716bb40df1c.ctex"
+uid="uid://bmpctfrc5dbir"
+path="res://.godot/imported/Biorganic device copie.png-457170e1ff328280e818957a250a389f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Items/Coin rotation.png"
-dest_files=["res://.godot/imported/Coin rotation.png-6b510936b2e736d1f8fe3716bb40df1c.ctex"]
+source_file="res://Assets/Textures/Items/Biorganic device copie.png"
+dest_files=["res://.godot/imported/Biorganic device copie.png-457170e1ff328280e818957a250a389f.ctex"]
 
 [params]
 

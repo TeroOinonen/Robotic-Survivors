@@ -7,6 +7,9 @@ const move_speed: float = 40
 
 var target_location: Vector2
 
+@onready var coin_template = preload("res://Scenes/Items/coin.tscn")
+@onready var death_sound: AudioStreamPlayer = $DeathSound
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,6 +32,12 @@ func take_damage(amount: int):
 
 func get_destroyed():
 	print("Enemy died")
+	death_sound.play()
+	
+	if randf() > 0.7 :
+		var new_coin = coin_template.instantiate()
+		new_coin.set_coin_value(1)
+	
 	queue_free()
 
 

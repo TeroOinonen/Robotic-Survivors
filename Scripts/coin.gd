@@ -21,3 +21,11 @@ func get_collected(target):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.add_coin(coin_value)
+
+func set_coin_value(value:int)
+	coin_value = value
+	
+	if (coin_value > 3):
+		$CoinAppearance.animation("Third")
+	elif (coin_value > 1):
+		$CoinAppearance.animation("Second")

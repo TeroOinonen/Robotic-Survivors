@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkiwkbee1keai"]
+[gd_scene load_steps=6 format=3 uid="uid://bkiwkbee1keai"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hppde"]
 [ext_resource type="Texture2D" uid="uid://cyn3w6kg2kfuc" path="res://Assets/Textures/Entities/rat.png" id="2_l5yqw"]
+[ext_resource type="AudioStream" uid="uid://bjvm60diotoui" path="res://Assets/Audio/SFX/death_buzz.wav" id="3_oty1n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uylb0"]
 animations = [{
@@ -34,5 +35,8 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -1)
 shape = SubResource("CapsuleShape2D_r8f8c")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oty1n")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
