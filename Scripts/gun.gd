@@ -10,6 +10,7 @@ extends Node2D
 @onready var bullet = preload("res://Scenes/Items/bullet.tscn")
 
 @onready var bullet_container = $BulletContainer
+@onready var shot_sound: AudioStreamPlayer = $ShotSound
 
 var next_shot_in: float = 0
 
@@ -34,6 +35,7 @@ func shoot():
 
 func new_bullet():
 	var pew = bullet.instantiate()
+	shot_sound.play()
 	
 	# Add as child, then set as top level
 	bullet_container.add_child(pew)

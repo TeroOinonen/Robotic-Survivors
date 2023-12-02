@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b64j0pkmdv36d"]
+[gd_scene load_steps=5 format=3 uid="uid://b64j0pkmdv36d"]
 
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="1_6xutg"]
 [ext_resource type="Texture2D" uid="uid://cxnp6kn5rkmvd" path="res://Assets/Textures/Items/Gun.png" id="1_lvng3"]
+[ext_resource type="AudioStream" uid="uid://dfnuaf8hviqco" path="res://Assets/Audio/413057__matrixxx__retro-laser-shot-01.wav" id="3_q2462"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qoqac"]
 animations = [{
@@ -22,3 +23,8 @@ metadata/_edit_vertical_guides_ = [-41.0]
 sprite_frames = SubResource("SpriteFrames_qoqac")
 
 [node name="BulletContainer" type="Node2D" parent="."]
+
+[node name="ShotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q2462")
+volume_db = -9.455
+max_polyphony = 4
