@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgcldom38vg48"]
+[gd_scene load_steps=5 format=3 uid="uid://bgcldom38vg48"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu_ui.gd" id="1_nyoxw"]
 [ext_resource type="Theme" uid="uid://diyisvvvu1ui5" path="res://Themes/menu_button_theme.tres" id="2_xlc3d"]
+[ext_resource type="AudioStream" uid="uid://46bxyvhmrotd" path="res://Assets/Audio/Music/Piano loops 023 efect 2 octave long loop 120 bpm.wav" id="3_oidet"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q18ks"]
 font_size = 48
@@ -66,6 +67,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_xlc3d")
 text = "Quit"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oidet")
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

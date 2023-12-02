@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://n1mfulcmk3uh"]
+[gd_scene load_steps=7 format=3 uid="uid://n1mfulcmk3uh"]
 
 [ext_resource type="Script" path="res://Scenes/game_view.gd" id="1_oxny4"]
 [ext_resource type="PackedScene" uid="uid://cdhri236uuiq5" path="res://Scenes/Entities/player.tscn" id="2_7gkqo"]
 [ext_resource type="PackedScene" uid="uid://ccxds0ty1ux3t" path="res://Scenes/level_background.tscn" id="2_vf0l8"]
 [ext_resource type="PackedScene" uid="uid://ha4o7sbko1bc" path="res://Scenes/Entities/control_tower.tscn" id="4_wskkn"]
 [ext_resource type="PackedScene" uid="uid://bkiwkbee1keai" path="res://Scenes/Entities/enemy.tscn" id="5_oxcua"]
+[ext_resource type="AudioStream" uid="uid://cgrtrbatsg5op" path="res://Assets/Audio/Music/Follow the Sun 2.wav" id="6_e63y3"]
 
 [node name="GameView" type="Node2D"]
 script = ExtResource("1_oxny4")
@@ -21,3 +22,8 @@ position = Vector2(662, 457)
 
 [node name="Enemy" parent="." instance=ExtResource("5_oxcua")]
 position = Vector2(881, 510)
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_e63y3")
+volume_db = -16.129
+autoplay = true

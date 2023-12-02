@@ -22,3 +22,14 @@ Käytetyt äänet:
 	Tekijä: unfa
 	Lisenssi: CC0
 	Latauslinkki: https://freesound.org/people/unfa/sounds/222678/
+
+Käytetty musiikki:
+	Piano loops 023 efect 2 octave long loop 120 bpm.wav
+	Tekijä: josefpres
+	Lisenssi: CC0
+	Latauslinkki: https://freesound.org/people/josefpres/sounds/711351/
+	
+	Follow the Sun - Action Movie Drums Beat Synth Drone Drum Ethno World Drama Cinematic Music Surround.wav
+	Tekijä: szegvari
+	Lisenssi: CC0
+	Latauslinkki: https://freesound.org/people/szegvari/sounds/608882/
