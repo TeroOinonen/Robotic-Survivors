@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://cdhri236uuiq5"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_kb8ds"]
-[ext_resource type="Texture2D" uid="uid://c2kv3idn4psjx" path="res://Assets/Textures/Entities/Droid.png" id="2_du7vn"]
+[ext_resource type="Texture2D" uid="uid://bvuovq0brqe26" path="res://Assets/Textures/Entities/Character 4 Blue.png" id="2_2638e"]
 [ext_resource type="PackedScene" uid="uid://b64j0pkmdv36d" path="res://Scenes/Items/gun.tscn" id="3_af1vc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2qtun"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_du7vn")
+"texture": ExtResource("2_2638e")
 }],
 "loop": true,
 "name": &"default",
@@ -31,7 +31,8 @@ script = ExtResource("1_kb8ds")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 clip_children = 2
-scale = Vector2(0.53125, 1)
+position = Vector2(0, 1)
+scale = Vector2(0.814815, 0.433333)
 sprite_frames = SubResource("SpriteFrames_2qtun")
 autoplay = "default"
 
@@ -43,7 +44,6 @@ offset_bottom = 19.0
 color = Color(1, 1, 1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_2eslo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -60,7 +60,6 @@ collision_layer = 32
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
-visible = false
 shape = SubResource("CircleShape2D_o6m7v")
 
 [connection signal="body_entered" from="CollectArea" to="." method="_on_collect_area_body_entered"]

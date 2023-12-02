@@ -34,8 +34,11 @@ func shoot():
 
 func new_bullet():
 	var pew = bullet.instantiate()
+	
+	# Add as child, then set as top level
 	bullet_container.add_child(pew)
+	pew.top_level = true
+
+	# After becoming top level, set the spawn position
 	pew.global_position = global_position
 	pew.global_rotation = global_rotation
-	pew.top_level = true
-	

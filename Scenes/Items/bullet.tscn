@@ -22,9 +22,12 @@ height = 14.0
 script = ExtResource("1_clktb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+rotation = 1.57079
 sprite_frames = SubResource("SpriteFrames_gcqrf")
 
 [node name="Area2D" type="Area2D" parent="."]
+rotation = 1.57079
 collision_layer = 8
 collision_mask = 6
 

@@ -21,4 +21,4 @@ metadata/_edit_vertical_guides_ = [-41.0]
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qoqac")
 
-[node name="BulletContainer" type="Node" parent="."]
+[node name="BulletContainer" type="Node2D" parent="."]

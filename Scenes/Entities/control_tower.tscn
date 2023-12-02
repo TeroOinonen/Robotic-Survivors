@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://ha4o7sbko1bc"]
 
 [ext_resource type="Script" path="res://Scripts/control_tower.gd" id="1_8jg2l"]
-[ext_resource type="Texture2D" uid="uid://k30ogsvygyqn" path="res://Assets/Textures/Entities/Control Tower.png" id="1_gdm0a"]
+[ext_resource type="Texture2D" uid="uid://brby678ke2nf5" path="res://Assets/Textures/Entities/Chair copie.png" id="2_4fgi2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2tov"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_gdm0a")
+"texture": ExtResource("2_4fgi2")
 }],
 "loop": true,
 "name": &"default",
@@ -27,6 +27,8 @@ collision_mask = 3
 script = ExtResource("1_8jg2l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 9)
+scale = Vector2(0.384615, 0.384615)
 sprite_frames = SubResource("SpriteFrames_b2tov")
 autoplay = "default"
 

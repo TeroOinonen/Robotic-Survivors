@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	var up_vector = get_global_transform().get_rotation()
 	
 	# Move bullet forward
-	global_position *= up_vector * bullet_speed * delta
+	global_position += Vector2.RIGHT * bullet_speed * delta
 	
 	# Reduce bullet age
 	bullet_age -= delta
