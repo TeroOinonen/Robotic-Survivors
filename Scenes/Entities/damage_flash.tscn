@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckh6157tv2o6u"]
+
+[ext_resource type="Script" path="res://Scripts/damage_flash.gd" id="1_24nsx"]
+
+[node name="DamageFlash" type="ColorRect"]
+offset_left = -20.7059
+offset_top = -21.0
+offset_right = 179.364
+offset_bottom = 179.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_24nsx")

@@ -9,7 +9,7 @@ var pass_through: int = 0
 var bullet_age: float = 5
 
 # Bullet travel speed
-var bullet_speed: float = 50
+var bullet_speed: float = 120
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +28,6 @@ func _process(delta: float) -> void:
 	# Reduce bullet age
 	bullet_age -= delta
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.TakeDamage(damage)
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	area.take_damage(damage)
 	pass_through -= 1

@@ -1,14 +1,16 @@
 extends Area2D
 
+signal got_killed
+
 # Number of hits it takes for the enemy to die
 @export var hit_points: int = 1
 
 const move_speed: float = 40
 
-var target_location: Vector2
+var target_object
 
 @onready var coin_template = preload("res://Scenes/Items/coin.tscn")
-@onready var death_sound: AudioStreamPlayer = $DeathSound
+@onready var damage_flash: ColorRect = $AnimatedSprite2D/DamageFlash
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +19,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var direction = target_location - global_position
+	if target_object == null:
+		return
+	
+	var direction = target_object.global_position - global_position
 	
 	direction = direction.normalized()
 	
@@ -26,13 +31,14 @@ func _process(delta: float) -> void:
 func take_damage(amount: int):
 	hit_points -= amount
 	print("Ouch!")
+	damage_flash.flash()
 	
 	if hit_points < 1:
 		get_destroyed()
 
 func get_destroyed():
 	print("Enemy died")
-	death_sound.play()
+	got_killed.emit()
 	
 	if randf() > 0.7 :
 		var new_coin = coin_template.instantiate()
@@ -44,3 +50,4 @@ func get_destroyed():
 func _on_body_entered(body: Node2D) -> void:
 	body.take_damage(1)
 	print("Enemy dealt damage")
+	get_destroyed()

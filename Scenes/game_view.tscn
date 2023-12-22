@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://n1mfulcmk3uh"]
+[gd_scene load_steps=10 format=3 uid="uid://n1mfulcmk3uh"]
 
 [ext_resource type="Script" path="res://Scenes/game_view.gd" id="1_oxny4"]
 [ext_resource type="PackedScene" uid="uid://cdhri236uuiq5" path="res://Scenes/Entities/player.tscn" id="2_7gkqo"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ha4o7sbko1bc" path="res://Scenes/Entities/control_tower.tscn" id="4_wskkn"]
 [ext_resource type="PackedScene" uid="uid://bkiwkbee1keai" path="res://Scenes/Entities/enemy.tscn" id="5_oxcua"]
 [ext_resource type="AudioStream" uid="uid://cgrtrbatsg5op" path="res://Assets/Audio/Music/Follow the Sun 2.wav" id="6_e63y3"]
+[ext_resource type="PackedScene" uid="uid://ciog2sh2o4gmy" path="res://Scenes/UI/hud_ui.tscn" id="7_tripm"]
+[ext_resource type="PackedScene" uid="uid://iluigbvh8h16" path="res://Scenes/UI/pause_menu_ui.tscn" id="8_u2j2b"]
+[ext_resource type="AudioStream" uid="uid://bjvm60diotoui" path="res://Assets/Audio/SFX/death_buzz.wav" id="9_ia5ln"]
 
 [node name="GameView" type="Node2D"]
 script = ExtResource("1_oxny4")
@@ -27,3 +30,19 @@ position = Vector2(881, 510)
 stream = ExtResource("6_e63y3")
 volume_db = -16.129
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HudUI" parent="CanvasLayer" instance=ExtResource("7_tripm")]
+
+[node name="PauseMenuUI" parent="CanvasLayer" instance=ExtResource("8_u2j2b")]
+visible = false
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ia5ln")
+
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="gun_ammo_count_changed" from="Player" to="CanvasLayer/HudUI" method="_on_ammo_count_changed"]
+[connection signal="gun_finished_reloading" from="Player" to="CanvasLayer/HudUI" method="_on_player_gun_finished_reloading"]
+[connection signal="gun_reloading_gun" from="Player" to="CanvasLayer/HudUI" method="_on_player_gun_reloading_gun"]
+[connection signal="hit_point_count_changed" from="Player" to="CanvasLayer/HudUI" method="_on_player_hit_point_count_changed"]

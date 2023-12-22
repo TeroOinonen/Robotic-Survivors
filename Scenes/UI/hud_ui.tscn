@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciog2sh2o4gmy"]
+
+[ext_resource type="Script" path="res://Scripts/hud_ui.gd" id="1_thmyg"]
+
+[node name="HudUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_thmyg")
+
+[node name="EnemyCount" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Enemies: 0"
+
+[node name="HitPointCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_right = 335.0
+offset_bottom = 23.0
+text = "HitPoints: 5"
+
+[node name="AmmoCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 465.0
+offset_right = 534.0
+offset_bottom = 23.0
+text = "Ammo: 6"
+
+[node name="ReloadingLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 248.0
+offset_top = 87.0
+offset_right = 329.0
+offset_bottom = 110.0
+text = "Reloading!"

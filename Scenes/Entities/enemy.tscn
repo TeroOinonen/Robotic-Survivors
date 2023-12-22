@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkiwkbee1keai"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hppde"]
-[ext_resource type="Texture2D" uid="uid://cyn3w6kg2kfuc" path="res://Assets/Textures/Entities/rat.png" id="2_l5yqw"]
-[ext_resource type="AudioStream" uid="uid://bjvm60diotoui" path="res://Assets/Audio/SFX/death_buzz.wav" id="3_oty1n"]
+[ext_resource type="Texture2D" uid="uid://d2uib3h2vr6i1" path="res://Assets/Textures/Entities/Character 2.png" id="2_tlq48"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/damage_flash.tscn" id="3_lt63w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uylb0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_l5yqw")
+"texture": ExtResource("2_tlq48")
 }],
 "loop": false,
 "name": &"default",
@@ -16,27 +16,31 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8f8c"]
-radius = 7.0
-height = 14.0
+radius = 11.0
+height = 44.0
 
 [node name="Enemy" type="Area2D"]
 light_mask = 2
 visibility_layer = 2
 y_sort_enabled = true
 collision_layer = 2
-collision_mask = 13
+collision_mask = 5
 script = ExtResource("1_hppde")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.609375, 0.953125)
+position = Vector2(-2.38419e-07, -9.53674e-07)
+scale = Vector2(0.786169, 0.529896)
 sprite_frames = SubResource("SpriteFrames_uylb0")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -1)
-shape = SubResource("CapsuleShape2D_r8f8c")
+[node name="DamageFlash" parent="AnimatedSprite2D" instance=ExtResource("3_lt63w")]
+offset_left = -15.0
+offset_top = -40.0
+offset_right = 14.0
+offset_bottom = 43.0
 
-[node name="DeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_oty1n")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_r8f8c")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

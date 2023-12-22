@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdhri236uuiq5"]
+[gd_scene load_steps=9 format=3 uid="uid://cdhri236uuiq5"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_kb8ds"]
 [ext_resource type="Texture2D" uid="uid://bvuovq0brqe26" path="res://Assets/Textures/Entities/Character 4 Blue.png" id="2_2638e"]
 [ext_resource type="PackedScene" uid="uid://b64j0pkmdv36d" path="res://Scenes/Items/gun.tscn" id="3_af1vc"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/damage_flash.tscn" id="3_q7hhq"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/enemy_spawn.tscn" id="5_8rvqf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2qtun"]
 animations = [{
@@ -36,12 +38,11 @@ scale = Vector2(0.814815, 0.433333)
 sprite_frames = SubResource("SpriteFrames_2qtun")
 autoplay = "default"
 
-[node name="DamageFlash" type="ColorRect" parent="AnimatedSprite2D"]
-offset_left = -20.7059
-offset_top = -21.0
-offset_right = 19.2941
-offset_bottom = 19.0
-color = Color(1, 1, 1, 0)
+[node name="DamageFlash" parent="AnimatedSprite2D" instance=ExtResource("3_q7hhq")]
+offset_left = -13.0
+offset_top = -42.0
+offset_right = 15.0
+offset_bottom = 42.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2eslo")
@@ -62,4 +63,9 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
 shape = SubResource("CircleShape2D_o6m7v")
 
+[node name="EnemySpawn" parent="." instance=ExtResource("5_8rvqf")]
+
+[connection signal="ammo_count_changed" from="GunSlot/Gun" to="." method="_on_gun_ammo_count_changed"]
+[connection signal="finished_reloading" from="GunSlot/Gun" to="." method="_on_gun_finished_reloading"]
+[connection signal="reloading_gun" from="GunSlot/Gun" to="." method="_on_gun_reloading_gun"]
 [connection signal="body_entered" from="CollectArea" to="." method="_on_collect_area_body_entered"]
